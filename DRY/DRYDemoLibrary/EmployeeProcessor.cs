@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +22,13 @@ namespace DRYDemoLibrary
             if(name.Length > numberOfCharacters)
             {
                 output = name.Substring(0, numberOfCharacters);
+            }
+            else
+            {
+                do
+                {
+                    output += "X";
+                } while (output.Length < 4);
             }
             return output;
         }
